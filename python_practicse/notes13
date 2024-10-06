@@ -1,0 +1,34 @@
+# three types of variables in oops concept
+# 1. Class variable
+# 2. Instance variable
+# 3. Local variable
+
+class Customer:
+    bank_name = 'ABC bank'  # Class variable --> available to all the object of the class
+    # here the __init__ constructor is defined so that every object when instanciated will run the class or else it will run only once for def the class
+
+    def __init__(self, name, age, intial_amount):
+        # Instance variable -->variable unique to each and every object of that class
+        self.name = name
+        self.age = age  # Instance variable
+        self.balance = intial_amount  # Instance variable
+        print(f"{self.name}, your balance is {self.balance}")
+
+    def deposit(self, amount):  # amount is #Local variable --> variables defined inside the method and only accessed when that method is called
+        self.balance += amount
+        print(
+            f'Deposit of {amount} in your bank is successfull. Your new balance is {self.balance}')
+
+
+c1 = Customer('John', 31, 5000)
+print(c1.bank_name)
+print(c1.name)
+print(c1.age)
+print(c1.balance)
+c2 = Customer('Rohan', 25, 1000)
+print(c2.name)
+print(c2.age)
+print(c2.balance)
+
+c1.deposit(500)
+c2.deposit(1000)
